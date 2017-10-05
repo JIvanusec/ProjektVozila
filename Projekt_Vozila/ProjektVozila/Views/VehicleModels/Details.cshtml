@@ -1,0 +1,42 @@
+﻿@model ProjektVozila.Models.VehicleModel
+
+@{
+    ViewBag.Title = "Detalji";
+}
+
+<h2>Modeli vozila</h2>
+
+<div>
+    <h4>Detalji</h4>
+    <hr />
+    <dl class="">
+        <dt>    
+            @Html.LabelFor(model => model.ModelName, "Naziv modela")
+        </dt>
+
+        <dd style="padding-bottom:10px">
+            @Html.DisplayFor(model => model.ModelName)
+        </dd>
+
+        <dt >
+            @Html.LabelFor(model => model.Abbreviation, "Kratica modela")
+        </dt>
+
+        <dd style="padding-bottom:10px">
+            @Html.DisplayFor(model => model.Abbreviation)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.VehicleMake.Name, "Marka vozila")
+        </dt>
+
+        <dd style="padding-bottom:10px">
+            @Html.DisplayFor(model => model.VehicleMake.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Uredi", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Natrag na popis modela", "Index")
+</p>

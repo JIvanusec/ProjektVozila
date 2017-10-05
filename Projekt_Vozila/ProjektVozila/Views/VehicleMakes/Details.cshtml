@@ -1,0 +1,65 @@
+﻿@model ProjektVozila.Models.VehicleMake
+
+@{
+    ViewBag.Title = "Detalji";
+}
+
+<h2>Marke vozila</h2>
+<h4>Detalji</h4>
+
+    <div>
+        <hr />
+        <dl>
+            <dt>
+               @Html.LabelFor(model => model.Name, "Naziv marke")
+            </dt>
+
+            <dd style="padding-bottom:10px">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.LabelFor(model => model.Abbreviation, "Kratica")
+            </dt>
+
+            <dd style="padding-bottom:10px">
+                @Html.DisplayFor(model => model.Abbreviation)
+            </dd>
+
+
+            <hr />
+
+            <dt style="margin-top:30px">
+                @Html.LabelFor(model => model.VehicleModels, "Modeli vozila")
+            </dt>
+
+    <dd style="margin-top:30px">
+        <table class="table well">
+            <tr>
+                <th class="text-center" style="width:497px">Serijski broj marke</th>
+                <th class="text-center" style="width:497px">Model name</th>
+                <th class="text-center" style="width:497px">Kratica</th>
+            </tr>
+            @foreach (var item in Model.VehicleModels)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MakeId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModelName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Abbreviation)
+                    </td>
+                </tr>
+            }
+        </table>
+    </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Uredi", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Natrag na popis vozila", "Index")
+</p>

@@ -1,0 +1,47 @@
+﻿@model ProjektVozila.Models.VehicleModel
+
+@{
+    ViewBag.Title = "Obriši";
+}
+
+<h2>Modeli vozila</h2>
+
+<h3>Da li ste sigurni da želite obrisati ovu stavku?</h3>
+<div>
+    <hr />
+    <dl>
+        <dt>
+           @Html.LabelFor(model => model.ModelName, "Naziv modela")
+        </dt>
+
+        <dd style="padding-bottom:10px">
+            @Html.DisplayFor(model => model.ModelName)
+        </dd>
+
+        <dt>
+           @Html.LabelFor(model => model.Abbreviation, "Kratica modela")
+        </dt>
+
+        <dd style="padding-bottom:10px">
+            @Html.DisplayFor(model => model.Abbreviation)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.VehicleMake.Name, "Marka vozila")
+        </dt>
+
+        <dd style="padding-bottom:10px">
+            @Html.DisplayFor(model => model.VehicleMake.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Brisanje" class="btn btn-default" /> |
+            @Html.ActionLink("Natrag na popis", "Index")
+        </div>
+    }
+</div>
